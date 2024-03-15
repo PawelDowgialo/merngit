@@ -1,10 +1,12 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const cors = require("cors")
 
 const app = express()
 const PORT = 8000
 
 app.use(express.json())
+app.use(cors())
 
 const myDataBase = "myDB"
 const url = `mongodb://localhost:27017/${myDataBase}`

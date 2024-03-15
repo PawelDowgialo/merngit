@@ -4,30 +4,44 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userList, setUsersList] = useState([])
+
+  async function fetchData(){
+    console.log("twoja babcia nie ma kapcia")
+    try{
+      const res = await fetch("http://localhost:8000/api/users", {method: "GET"})
+
+      if (!res.ok){
+        throw new Error(`network response was not ok: ${res.status}`)
+      }
+
+      const data = await res.json()
+
+      setUsersList(data)
+
+    }catch(err){
+      // console.log("Error", err)
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Lista użytkownikow</h1>
+      <h2>Users: </h2>
+      <button onClick={fetchData}>Pobierz dane o użytkownikach</button>
+      <ul style={{listStyle: "none"}}>
+        {
+          userList.map(user=>{
+            return (
+              <li key={user._id}>
+                imię: {user.name}, 
+                email: {user.email},
+                wiek: {user.age}
+              </li>
+            )
+          })
+        }
+      </ul>
     </>
   )
 }

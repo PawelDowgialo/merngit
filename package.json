@@ -1,5 +1,5 @@
 {
-  "name": "merngit",
+  "name": "mern_gr2",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,6 +8,7 @@
     "start:server:dev": "nodemon server/server.js",
     "start:client:dev": "npm run dev --prefix client",
     "start": "concurrently \"npm run start:server:dev\" \"npm run start:client:dev \" "
+
   },
   "keywords": [],
   "author": "",

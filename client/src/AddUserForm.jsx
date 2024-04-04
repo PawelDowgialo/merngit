@@ -3,11 +3,14 @@ import { useState } from "react"
 const AddUserForm = ()=>{
     const [newuser , setnewuser] = useState({name:"" , email:"",age:0})
  
-    function submitHandler(){
+    function submitHandler(err){
         e.preventDefault()
 
         try {
-            
+                const response = await fetch("http://localhost:8000/api/users", {
+                method: "POST",
+                header: {"Content-type: ": "application/json"}
+            })
         } catch (err) {
             console.error(`some problems with your mum: ${err.message}`)
         }

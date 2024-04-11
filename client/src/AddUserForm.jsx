@@ -3,7 +3,11 @@ import { useState } from "react"
 const AddUserForm = ()=>{
     const [newuser , setnewuser] = useState({name:"" , email:"",age:0})
  
+<<<<<<< HEAD
    async function submitHandler(err){
+=======
+    function submitHandler(err){
+>>>>>>> 5e86f63aeb3e4745045548f8093464927c381bb0
         e.preventDefault()
 
         try {

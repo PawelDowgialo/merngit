@@ -46,6 +46,7 @@ app.delete("/api/users/:id", async (req, res)=>{
     }
 })
 
+<<<<<<< HEAD
 app.post("/api/users", async (req, res)=>{
     try{
         const newUser = await User.find({})
@@ -56,6 +57,8 @@ app.post("/api/users", async (req, res)=>{
     }
 })
 
+=======
+>>>>>>> 5e86f63aeb3e4745045548f8093464927c381bb0
 app.listen(PORT, ()=>console.log(`Server express is running ${PORT}`))
 
 process.on('SIGINT', ()=>{

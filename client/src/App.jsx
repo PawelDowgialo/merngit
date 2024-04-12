@@ -59,7 +59,8 @@ function App() {
           })
         }
       </ul>
-      <AddUserForm/>
+      <img src="http://localhost:8000/images/bandyta1.webp" alt="user"/>
+      <AddUserForm updateUsersList={fetchData}/>
     </>
   )
 }
